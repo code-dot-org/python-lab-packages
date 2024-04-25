@@ -1,0 +1,6 @@
+# Generated files from builds
+**/dist/*
+*.egg-info
+
+# Misc ignores
+.DS_Store
