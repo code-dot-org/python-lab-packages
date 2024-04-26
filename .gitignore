@@ -1,6 +1,8 @@
 # Generated files from builds
 **/dist/*
 *.egg-info
+**/__pycache__/*
 
 # Misc ignores
 .DS_Store
+.vscode/*
