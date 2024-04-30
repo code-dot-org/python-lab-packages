@@ -16,7 +16,7 @@ def patch_matplotlib(matplotlib_img_tag):
         buf.seek(0)
         # encode to a base64 str
         img = base64.b64encode(buf.read()).decode('utf-8')
-        print('${matplotlib_img_tag} % s' % img)
+        print(f'{matplotlib_img_tag} {img}')
         matplotlib.pyplot.clf()
 
     matplotlib.pyplot.show = show

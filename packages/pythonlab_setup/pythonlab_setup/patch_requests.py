@@ -6,6 +6,12 @@ def get_proxy_path(host, url, channel_id):
 
 
 def patch_requests(host, channel_id):
+    print("in patch requests")
+    # try:
+    #     requests.has_been_patched
+    #     print("has been patched already")
+    # except:
+    print("patching...")
     _old_get = requests.get
 
     def get(url, params=None, **kwargs):
@@ -15,3 +21,4 @@ def patch_requests(host, channel_id):
         return _old_get(url, params, **kwargs)
 
     requests.get = get
+        # requests.has_been_patched = True
