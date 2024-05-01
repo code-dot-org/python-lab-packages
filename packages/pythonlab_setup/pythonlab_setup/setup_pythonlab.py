@@ -1,7 +1,6 @@
 from .patch_matplotlib import patch_matplotlib
-from .patch_requests import patch_requests
+from .patch_requests import reload_requests_and_patch
 
 def setup_pythonlab(matplotlib_img_tag, host, channel_id):
-  print("hello from setup!")
   patch_matplotlib(matplotlib_img_tag)
-  patch_requests(host, channel_id)
+  reload_requests_and_patch(host, channel_id)

@@ -16,22 +16,7 @@ class TestPatchRequests(TestCase):
         host = "http://localhost:8000"
         channel_id = "channel123"
         patch_requests(host, channel_id)
-        
-        test_url = "http://example.com/api/data"
-        requests.get(test_url)  # This should now call the patched function
 
-        # Verify requests.get was called correctly
-        expected_url = "http://localhost:8000/xhr?u=http://example.com/api/data&c=channel123"
-        mock_get.assert_called_once_with(expected_url, None)
-
-    # Ensure can patch requests twice and it won't cause the url to be appended twice
-    @mock.patch('requests.get')
-    def test_patch_twice(self, mock_get):
-        host = "http://localhost:8000"
-        channel_id = "channel123"
-        patch_requests(host, channel_id)
-        patch_requests(host, channel_id)
-        
         test_url = "http://example.com/api/data"
         requests.get(test_url)  # This should now call the patched function
 
