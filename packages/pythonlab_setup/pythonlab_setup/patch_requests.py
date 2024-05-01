@@ -19,6 +19,8 @@ def reload_requests_and_patch(host, channel_id):
 def patch_requests(host, channel_id):
     _old_get = requests.get
 
+    # TODO: Patch the rest of the methods
+    # https://codedotorg.atlassian.net/browse/CT-537
     def get(url, params=None, **kwargs):
         url = get_proxy_path(host, url, channel_id)
         return _old_get(url, params, **kwargs)
