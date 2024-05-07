@@ -1,2 +1,37 @@
-# python-lab-packages
-Packages for use in Python Lab
+# pythonlab-packages
+This repository consists of packages for use in Python Lab. This can contain any library we want to expose to
+students or any patches we want to apply to student code. Here are the current packages:
+
+### pythonlab_setup
+This package handles setup for Python Lab. Specifically, it patches libraries for use in Python Lab.
+The current patches are:
+- We patch `matplotlib` in order to display graphs correctly. The patch updates the `show` method to send
+  a base64 encoded string for display in Python Lab.
+- We patch `requests` in order to route requests through code.org's request proxy. This protects students
+  by only allowing requests to an allow-list of urls.
+
+All Python Lab programs are prefixed with `setup_pythonlab()`, the method this package exposes, which applies
+the above patches.
+
+## Setup
+- Install `pyenv`. 
+    - See instructions [here](https://github.com/pyenv/pyenv?tab=readme-ov-file#getting-pyenv)
+- Install python.
+    ```
+    pyenv install $(cat .python-version)
+    ```
+    After install, run `python --version`, which should output `3.12.2`.
+- Install [pipenv](https://pipenv.pypa.io/en/latest/).
+    ```
+    pip install --user pipenv
+    ```
+- Install all required packages for the package you are working on. Navigate to the folder of the package (for example, `packages/pythonlab_setup`), and run:
+    ```
+    pipenv install
+    ```
+
+## Building a package
+From the package folder containing `pyproject.toml`, run `python -m build`. The generated `.whl` file will be in the `dist` folder.
+
+## Run tests
+From the folder containing code and tests, run `python -m unittest`. This will look for tests in all files that start with `test`.
