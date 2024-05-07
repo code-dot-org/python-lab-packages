@@ -2,6 +2,9 @@ import requests
 import urllib.parse
 import importlib
 
+# Patch requests to proxy all request through the code.org xhr endpoint.
+# This is necessary to only allow requests to an allow-list of domains.
+
 def get_proxy_path(host, url, channel_id):
     return f"{host}/xhr?u={urllib.parse.quote(url, safe='/:')}&c={urllib.parse.quote(channel_id, safe='/:')}"
 

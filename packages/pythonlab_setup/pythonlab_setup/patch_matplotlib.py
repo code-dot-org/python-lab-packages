@@ -7,6 +7,9 @@ os.environ['MPLBACKEND'] = 'AGG'
 
 import matplotlib.pyplot
 
+# Patch matplotlib.show to print the image as a base64 encoded string.
+# This string is prefixed with the given matplotlib_img_tag, so the frontend
+# can identify the image and render it correctly.
 def patch_matplotlib(matplotlib_img_tag):
     _old_show = matplotlib.pyplot.show
 

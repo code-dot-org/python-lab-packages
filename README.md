@@ -1,12 +1,24 @@
 # pythonlab-packages
-Packages for use in Python Lab
+This repository consists of packages for use in Python Lab. This can contain any library we want to expose to
+students or any patches we want to apply to student code. Here are the current packages:
+
+### pythonlab_setup
+This package handles setup for Python Lab. Specifically, it patches libraries for use in Python Lab.
+The current patches are:
+- We patch `matplotlib` in order to display graphs correctly. The patch updates the `show` method to send
+  a base64 encoded string for display in Python Lab.
+- We patch `requests` in order to route requests through code.org's request proxy. This protects students
+  by only allowing requests to an allow-list of urls.
+
+All Python Lab programs are prefixed with `setup_pythonlab()`, the method this package exposes, which applies
+the above patches.
 
 ## Setup
 - Install `pyenv`. 
     - See instructions [here](https://github.com/pyenv/pyenv?tab=readme-ov-file#getting-pyenv)
 - Install python.
     ```
-    pyenv install 3.12.2
+    pyenv install $(cat .python-version)
     ```
     After install, run `python --version`, which should output `3.12.2`.
 - Install [pipenv](https://pipenv.pypa.io/en/latest/).
