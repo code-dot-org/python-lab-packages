@@ -5,4 +5,4 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "pythonlab_setup"
 version = "0.0.1"
-dependencies = ["requests", "matplotlib"]
+dependencies = ["matplotlib"]

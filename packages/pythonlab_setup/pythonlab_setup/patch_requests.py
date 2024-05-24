@@ -5,6 +5,11 @@ import importlib
 # Patch requests to proxy all request through the code.org xhr endpoint.
 # This is necessary to only allow requests to an allow-list of domains.
 
+# TODO: Patch all requests methods and add requests as a dependency in pyproject.toml.
+# Once we've patched all the methods and curriculum wants to expose requests to users,
+# call reload_requests_and_patch from setup_pythonlab. See linked ticket for more information.
+# https://codedotorg.atlassian.net/browse/CT-537
+
 def get_proxy_path(host, url, channel_id):
     return f"{host}/xhr?u={urllib.parse.quote(url, safe='/:')}&c={urllib.parse.quote(channel_id, safe='/:')}"
 
@@ -22,8 +27,6 @@ def reload_requests_and_patch(host, channel_id):
 def patch_requests(host, channel_id):
     _old_get = requests.get
 
-    # TODO: Patch the rest of the methods
-    # https://codedotorg.atlassian.net/browse/CT-537
     def get(url, params=None, **kwargs):
         url = get_proxy_path(host, url, channel_id)
         return _old_get(url, params, **kwargs)
