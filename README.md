@@ -10,8 +10,8 @@ The current patches are:
 - We patch `requests` in order to route requests through code.org's request proxy. This protects students
   by only allowing requests to an allow-list of urls.
 
-All Python Lab programs are prefixed with `setup_pythonlab()`, the method this package exposes, which applies
-the above patches.
+All Python Lab programs are prefixed with `setup_pythonlab()`, the method this package exposes, which only applies
+the matplotlib patch for now.
 
 ## Setup
 - Install `pyenv`. 
