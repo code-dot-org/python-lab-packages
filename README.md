@@ -13,6 +13,10 @@ The current patches are:
 All Python Lab programs are prefixed with `setup_pythonlab()`, the method this package exposes, which only applies
 the matplotlib patch for now.
 
+## unittest_runner
+This tests adds some customization to the output of unit tests, and has a function to either run validation tests
+(more customized) or student tests (less customized).
+
 ## Setup
 - Install `pyenv`. 
     - See instructions [here](https://github.com/pyenv/pyenv?tab=readme-ov-file#getting-pyenv)
