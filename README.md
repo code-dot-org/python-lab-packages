@@ -10,8 +10,12 @@ The current patches are:
 - We patch `requests` in order to route requests through code.org's request proxy. This protects students
   by only allowing requests to an allow-list of urls.
 
-All Python Lab programs are prefixed with `setup_pythonlab()`, the method this package exposes, which applies
-the above patches.
+All Python Lab programs are prefixed with `setup_pythonlab()`, the method this package exposes, which only applies
+the matplotlib patch for now.
+
+## unittest_runner
+This tests adds some customization to the output of unit tests, and has a function to either run validation tests
+(more customized) or student tests (less customized).
 
 ## Setup
 - Install `pyenv`. 
