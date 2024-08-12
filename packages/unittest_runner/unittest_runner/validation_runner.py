@@ -2,8 +2,9 @@
 from unittest import TextTestResult
 
 class ValidationTestResult(TextTestResult):
-  simplified_results = []
-
+  def __init__(self, stream, descriptions, verbosity):
+    super(ValidationTestResult, self).__init__(stream, descriptions, verbosity)
+    self.simplified_results = []
 
   # The default behavior is to display the test name and short description.
   # We want to display only the short description if it exists, otherwise just the test name.
