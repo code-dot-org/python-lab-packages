@@ -3,15 +3,16 @@ This repository consists of packages for use in Python Lab. This can contain any
 students or any patches we want to apply to student code. Here are the current packages:
 
 ### pythonlab_setup
-This package handles setup for Python Lab. Specifically, it patches libraries for use in Python Lab.
+This package handles setup and teardown for Python Lab. For setup, it patches libraries for use in Python Lab.
 The current patches are:
 - We patch `matplotlib` in order to display graphs correctly. The patch updates the `show` method to send
   a base64 encoded string for display in Python Lab.
 - We patch `requests` in order to route requests through code.org's request proxy. This protects students
   by only allowing requests to an allow-list of urls.
 
-All Python Lab programs are prefixed with `setup_pythonlab()`, the method this package exposes, which only applies
-the matplotlib patch for now.
+We run `setup_pythonlab()`, a method this package exposes, before each student run, which only applies
+the matplotlib patch for now. We also run `teardown_pythonlab()` after each run, which flushes stdout and
+changes directory to the home folder.
 
 ## unittest_runner
 This tests adds some customization to the output of unit tests, and has a function to either run validation tests
