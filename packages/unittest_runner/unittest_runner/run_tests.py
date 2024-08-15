@@ -1,17 +1,32 @@
 import unittest
 from .validation_runner import ValidationTestResult
 
-# Run the tests in the given file pattern and display the results to the user.
-# Validation tests use the ValidationTestResult class to display only the short description of the test.
-# This also returns simplified results for the caller to use. Simplified results is a list of the form:
-# [{'name': 'test_name', 'result': 'PASS/FAIL/ERROR/SKIP/EXPECTED_FAILURE/UNEXPECTED_SUCCESS'}, ...]
 def run_validation_tests(file_pattern):
+  """
+  Run the tests matching the given file pattern and display the results to the user.
+  Validation tests use the ValidationTestResult class to display only the short description of the test.
+
+  Args:
+    file_pattern (str): A glob pattern to match test files.
+
+  Returns:
+      List[Dict[str, str]]: A simplified list of test results with each entry containing:
+          - 'name': The name of the test.
+          - 'result': The outcome, which is one of the following:
+            'PASS', 'FAIL', 'ERROR', 'SKIP', 'EXPECTED_FAILURE', 'UNEXPECTED_SUCCESS'.
+  """
   result = run_tests(file_pattern, ValidationTestResult)
   return result.simplified_results
 
-# Run the tests in the given file pattern and display the results to the user.
-# Student tests use the standard TextTestResult class to display the test name and short description.
+
 def run_student_tests(file_pattern):
+  """
+  Run the tests in the given file pattern and display the results to the user.
+  Student tests use the standard TextTestResult class to display the test name and short description.
+  
+  Args:
+    file_pattern (str): A glob pattern to match test files.
+  """
   run_tests(file_pattern, unittest.TextTestResult)
 
 def run_tests(file_pattern, resultclass):
