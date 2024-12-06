@@ -38,6 +38,7 @@ jobs:
     - name: Test with unittest
       run: |
         cd packages/pythonlab_setup/pythonlab_setup
+        python -m build
         python -m unittest
         pwd
         cd .
