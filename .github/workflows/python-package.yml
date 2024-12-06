@@ -42,7 +42,5 @@ jobs:
         pipenv install
         cd pythonlab_setup
         pipenv run python -m unittest
-        pwd
-        cd ~
-        pwd
-        # python -m unittest packages/unittest_runner
+        cd ../..
+        # Repeat install and run unit tests for any other packages with tests.
