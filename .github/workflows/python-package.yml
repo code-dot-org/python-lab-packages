@@ -43,6 +43,6 @@ jobs:
         cd pythonlab_setup
         pipenv run python -m unittest
         pwd
-        cd .
+        cd ~
         pwd
         # python -m unittest packages/unittest_runner
