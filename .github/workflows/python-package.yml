@@ -38,8 +38,9 @@ jobs:
     #     flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
     - name: Test with unittest
       run: |
-        cd packages/pythonlab_setup/pythonlab_setup
+        cd packages/pythonlab_setup
         python -m build
+        cd pythonlab_setup
         python -m unittest
         pwd
         cd .
