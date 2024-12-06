@@ -7,9 +7,9 @@ name = "pypi"
 build = "*"
 requests = "*"
 matplotlib = "*"
-ruff = "*"
 
 [dev-packages]
+ruff = "*"
 
 [requires]
 python_version = "3.12"

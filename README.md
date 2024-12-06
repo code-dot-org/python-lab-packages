@@ -36,7 +36,12 @@ This tests adds some customization to the output of unit tests, and has a functi
     ```
 
 ## Building a package
-From the package folder containing `pyproject.toml`, run `python -m build`. The generated `.whl` file will be in the `dist` folder.
+From the package folder containing `pyproject.toml`, run `pipenv run python -m build`. The generated `.whl` file will be in the `dist` folder.
 
 ## Run tests
-From the folder containing code and tests, run `python -m unittest`. This will look for tests in all files that start with `test`.
+From the folder containing code and tests, run `pipenv run python -m unittest`. This will look for tests in all files that start with `test`.
+
+# Linting
+We use [ruff](https://docs.astral.sh/ruff/installation/) for linting. It is a dev dependency of all of our packages. You can install it on
+your editor of choice for inline suggestions (for example, [VS Code](https://marketplace.visualstudio.com/items?itemName=charliermarsh.ruff)),
+and run it on the command line via `ruff check`. It also runs as part of the PR check process.
