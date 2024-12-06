@@ -41,7 +41,7 @@ jobs:
         cd packages/pythonlab_setup
         pipenv install
         cd pythonlab_setup
-        python -m unittest
+        pipenv run python -m unittest
         pwd
         cd .
         pwd
