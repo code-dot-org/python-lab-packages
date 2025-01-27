@@ -40,3 +40,5 @@ From the package folder containing `pyproject.toml`, run `python -m build`. The 
 
 ## Run tests
 From the folder containing code and tests, run `python -m unittest`. This will look for tests in all files that start with `test`.
+
+Small change is small.
