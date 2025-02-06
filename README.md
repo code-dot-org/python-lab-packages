@@ -1,3 +1,5 @@
+This repository is archived in favor of using the [monorepo](https://github.com/code-dot-org/code-dot-org/tree/staging/python/pythonlab) to store python lab packages.
+
 # pythonlab-packages
 This repository consists of packages for use in Python Lab. This can contain any library we want to expose to
 students or any patches we want to apply to student code. Here are the current packages:
